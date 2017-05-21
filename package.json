@@ -9,6 +9,7 @@
   "author": "Luke Taylor",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.3",
     "skygrid": "^0.2.8",
     "ttn": "^2.1.1"
   },

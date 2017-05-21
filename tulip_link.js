@@ -14,13 +14,13 @@ var SkyGrid = require('skygrid');
 exports.startlink = function() {
 
     // Skygrid Config - these IDs come from the SkyGrid dashboard
-    var project = SkyGrid.project('SuUHRs4T');       // Get a Project object that lets us interact with a SkyGrid project.
-    var device  = project.device('vDAjs2mv');        // The SkyGrid device ID, found inside the above project - unique to each device
+    var project = SkyGrid.project('');       // Get a Project object that lets us interact with a SkyGrid project.
+    var device  = project.device('');        // The SkyGrid device ID, found inside the above project - unique to each device
 
     // Things network config - this information can be found in your Things Network console
     var region 	  = 'asia-se.thethings.network';
     var appId 	  = 'tulip-app'
-    var accessKey = 'ttn-account-v2.wjdkWNP2ZiYkC1I6aH2Z8Pat8Mx66HsHxMwsy2TpQ2c'
+    var accessKey = ''
     var client    = new ttn.Client(region, appId, accessKey);
 
     console.log("Initiating link between TTN, SkyGrid & this server.")
