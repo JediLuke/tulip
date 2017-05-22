@@ -30,7 +30,7 @@ exports.startlink = function() {
     // Things network config - this information can be found in your Things Network console
     var region 	  = 'asia-se.thethings.network'
     var appId 	  = 'tulip-app'
-    var accessKey = 'ttn-account-v2.wjdkWNP2ZiYkC1I6aH2Z8Pat8Mx66HsHxMwsy2TpQ2c'
+    var accessKey = ''
     var client    = new ttn.Client(region, appId, accessKey)
 
     console.log("Initiating link between TTN, SkyGrid & this server.")
