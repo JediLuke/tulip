@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<html lang="en-US" />
+
+<head>
+<title>TULIP</title>
+<link rel="icon" 		    href=""/>
+<link rel="stylesheet" 	href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="author" 	  content="Luke Taylor"/>
+<meta name="viewport" 	content="width=device-width, initial-scale=1.0"/>
+
+<!-- Load the SkyGrid SDK from the CDN -->
+<script src="https://cdn.skygrid.io/sdk/js/skygrid-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<style>
+html, body {
+    height:       100%;
+    margin:       0;
+    font-family:  helvetica, tahoma, verdana, arial;
+    color:      #333;
+    }
+.details {
+    font-size: 100px;
+    }
+.sub_details {
+    font-size: 60px;
+    }
+.big {
+    font-size: 250px;
+    }
+.red {
+    color: #E82C0C; 
+    }
+.white {
+    color: #000;
+    }
+.center {
+    text-align: center;
+    }
+.container {
+    margin-top: 25px;
+    height: 260px;
+    }
+td {
+    text-align: center;
+    }
+.page {
+	  display: 		        flex;
+    flex-direction:     column;
+    justify-content:    center; /* align horizontal */
+    align-items:        center; /* align vertical */
+    height:             100%;
+	}
+</style>
+</head>
+
+
+<body class="page">
+<center>
+  <!--<img src="img/portfolio-3.jpg" style="width: 30%; margin-top: 50px">-->
+  <h1 style="margin-top: 50px" style="margin-bottom: 50px">Sensor 2</h1>
+  <br>
+  <table>
+    <col width="300">
+    <col width="300">
+    <col width="300">
+    <tr>
+      <td>
+        Humidity
+      </td>
+      <td>
+        Temperature
+      </td>
+      <td>
+        PM 2.5
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="sub_details" id="humidity">...</div>
+      </td>
+      <td>
+        <div class="sub_details" id="temp">...</div>
+      </td>
+      <td>
+        <div class="sub_details" id="pm2p5">...</div>
+      </td>
+    </tr>
+
+  </table>
+
+</center>
+
+
+<!-- Load data -->
+<script>  
+
+const SKYGRID_PROJECT = 'SuUHRs4T'
+const SKYGRID_SERVER  = 'https://api.skygrid.io:81/'
+const DEVICE_ID       = 'gdiaHm-Z'
+
+const project = SkyGrid.project(SKYGRID_PROJECT, { address: SKYGRID_SERVER });
+const device  = project.device(DEVICE_ID).fetch().then((device) => {
+  
+  // Apply a subscription to any changes (updated in real-time via websockets)
+  device.subscribe(function(changes) {
+    update(device);
+  });
+
+  // Apply first update to the page
+  update(device);
+
+});
+
+function update(device) {
+  // Update the 'humidity' field with the value from the device
+  $("#temp").text(device.get('temp'));
+  $("#humidity").text(device.get('humidity'));
+  $("#pm2p5").text(device.get('pm2p5'));
+};
+  
+</script>
+</body>
+</html>

@@ -18,11 +18,40 @@ app.get("/", function(req, res, next) {
     res.sendfile(__dirname + '/index.html')
     });
 
-// Serve the sensors page
-app.get("/sensors", function(req, res, next) {
-    res.sendfile(__dirname + '/sensors.html')
+// Serve the sensors pages
+app.get("/sensor1", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor1.html')
     });
 
+app.get("/sensor2", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor2.html')
+    });
+
+app.get("/sensor3", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor3.html')
+    });
+
+app.get("/sensor4", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor4.html')
+    });
+
+app.get("/sensor5", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor5.html')
+    });
+
+app.get("/sensor6", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor6.html')
+    });
+
+app.get("/sensor7", function(req, res, next) {
+    res.sendfile(__dirname + '/sensor7.html')
+    });
+
+// app.get("/all", function(req, res, next) {
+//     res.sendfile(__dirname + '/sensor7.html')
+//     });
+
+// Set up server
 app.listen(80, function () {
     console.log('Listening on port 80')
     })

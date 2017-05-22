@@ -20,9 +20,11 @@
 <![endif]-->
 
 <style>
-body {
-    font-family: helvetica, tahoma, verdana, arial;
-    color: #333;
+html, body {
+    height:       100%;
+    margin:       0;
+    font-family:  helvetica, tahoma, verdana, arial;
+    color:      #333;
     }
 .details {
     font-size: 100px;
@@ -49,17 +51,26 @@ body {
 td {
     text-align: center;
     }
+.page {
+	  display: 		        flex;
+    flex-direction:     column;
+    justify-content:    center; /* align horizontal */
+    align-items:        center; /* align vertical */
+    height:             100%;
+	}
 </style>
 </head>
 
 
 <body class="page">
 <center>
-  <img src="img/portfolio-3.jpg" style="width: 30%; margin-top: 50px">
-  <h1 style="margin-top: 50px" style="margin-bottom: 50px">Live sensors</h1>
-
-  <table style="width: 550px; margin-top: 50px">
-
+  <!--<img src="img/portfolio-3.jpg" style="width: 30%; margin-top: 50px">-->
+  <h1 style="margin-top: 50px" style="margin-bottom: 50px">Sensor 4</h1>
+  <br>
+  <table>
+    <col width="300">
+    <col width="300">
+    <col width="300">
     <tr>
       <td>
         Humidity
@@ -94,7 +105,7 @@ td {
 
 const SKYGRID_PROJECT = 'SuUHRs4T'
 const SKYGRID_SERVER  = 'https://api.skygrid.io:81/'
-const DEVICE_ID       = 'vDAjs2mv'
+const DEVICE_ID       = 'OugKN_2E'
 
 const project = SkyGrid.project(SKYGRID_PROJECT, { address: SKYGRID_SERVER });
 const device  = project.device(DEVICE_ID).fetch().then((device) => {
